@@ -28,6 +28,9 @@ class CompanyCreateView(CreateView):
     model = Company
     fields = ('company_name', 'company_type')
 
+    def get_success_url(self):
+        return reverse('company-list')
+
 
 def FindLocationKeyword(request, keyword):
     result = LocationKeyword.objects.filter(keyword__contains=keyword)
