@@ -17,13 +17,14 @@ from django.contrib import admin
 from django.urls import path
 
 from accounts.views import signup
-from party.views import PartyCreateView, PartyListView, CompanyListView, CompanyCreateView
+from party.views import PartyCreateView, PartyListView, CompanyListView, CompanyCreateView, FindLocationKeyword
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', signup),
-    path('party/', PartyListView.as_view()),
+    path('party/', PartyListView.as_view(), name='party-list'),
     path('party/create', PartyCreateView.as_view()),
-    path('company/', CompanyListView.as_view()),
+    path('company/', CompanyListView.as_view(), name='company-list'),
     path('company/create/', CompanyCreateView.as_view()),
+    path('location/keyword/<slug:keyword>', FindLocationKeyword),
 ]

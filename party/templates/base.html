@@ -72,10 +72,6 @@
     </div>
 </nav>
 
-<div class="container">
-            {% block content %}
-            {% endblock %}
-</div>
 <!-- Core -->
 <script src="{% static '/assets/vendor/jquery/jquery.min.js' %}"></script>
 <script src="{% static '/assets/vendor/popper/popper.min.js' %}"></script>
@@ -83,5 +79,10 @@
 
 <!-- Theme JS -->
 <script src="{% static '/assets/js/argon.min.js' %}"></script>
+
+<div class="container">
+            {% block content %}
+            {% endblock %}
+</div>
 </body>
 </html>

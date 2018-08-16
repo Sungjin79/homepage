@@ -5,4 +5,17 @@
     <div align="right"><input type="submit" value="Save" class="btn" /></div>
 </form>
 
+<input type="text" id="keyword">
+<input type="text" id="result">
+<script>
+    $('#keyword').on('input',function(e){
+        $.ajax({type : 'GET',
+               url:'http://localhost:8000/location/keyword/' + $('#keyword').val(),
+               success : function (data) {
+                $('#result').val(data);
+              }
+          });
+
+    });
+</script>
 {% endblock %}

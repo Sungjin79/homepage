@@ -62,3 +62,25 @@ class Party(models.Model):
 
     def __str__(self):
         return self.party
+
+
+class Location(models.Model):
+    location = models.CharField(max_length=5)
+    language = models.CharField(max_length=5)
+    location_type = models.CharField(max_length=10)
+    location_detail = models.CharField(max_length=300)
+    level1 = models.CharField(max_length=100)
+    level2 = models.CharField(max_length=100)
+    level3 = models.CharField(max_length=100)
+    level4 = models.CharField(max_length=100)
+    citycode = models.CharField(max_length=5)
+    nation = models.CharField(max_length=2)
+
+
+class LocationKeyword(models.Model):
+    location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    keyword = models.CharField(max_length=10)
+
+# 팝업 디자인 대신 페이지 전환으로
+# 복합키 안쓰는 방식으로...
+# ERD 필요.
