@@ -7,6 +7,9 @@
 
 <input type="text" id="keyword">
 <input type="text" id="result">
+{% endblock %}
+
+{% block javascript %}
 <script>
     $('#keyword').on('input',function(e){
         $.ajax({type : 'GET',
