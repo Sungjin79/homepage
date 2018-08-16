@@ -16,6 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from accounts.views import signup
+from party.views import PartyCreateView, PartyListView, CompanyListView, CompanyCreateView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', signup),
+    path('party/', PartyListView.as_view()),
+    path('party/create', PartyCreateView.as_view()),
+    path('company/', CompanyListView.as_view()),
+    path('company/create/', CompanyCreateView.as_view()),
 ]

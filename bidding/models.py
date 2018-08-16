@@ -10,7 +10,7 @@ class Section(models.Model):
 
 
 class SectionCost(models.Model):
-    executor = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL)
+    executor = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.CASCADE)
     section = models.ForeignKey(Section, null=True, on_delete=models.SET_NULL)
     cost = models.IntegerField()
 
