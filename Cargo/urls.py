@@ -21,9 +21,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('party/', PartyListView.as_view(), name='party-list'),
-    path('party/create', PartyCreateView.as_view()),
+    path('', PartyListView.as_view(), name='party-list'),
+    path('party/create', PartyCreateView.as_view(), name='party-create'),
     path('company/', CompanyListView.as_view(), name='company-list'),
-    path('company/create/', CompanyCreateView.as_view()),
+    path('company/create/', CompanyCreateView.as_view(), name='company-create'),
     path('location/keyword/<slug:keyword>', FindLocationKeyword),
 ]
