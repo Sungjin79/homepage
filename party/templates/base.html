@@ -43,11 +43,21 @@
 
             <ul class="navbar-nav ml-lg-auto">
                 <li class="nav-item">
-                    <a class="nav-link nav-link-icon" href="#">
-                        <i class="ni ni-favourite-28"></i>
-                        <span class="nav-link-inner--text d-lg-none">Discover</span>
+                    <a class="nav-link nav-link-icon" href="{% url 'party-list' %}">
+                        <span class="nav-link-inner--text">거래처</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-icon" href="{% url 'item-list' %}">
+                        <span class="nav-link-inner--text">품목</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-icon" href="{% url 'signup' %}">
+                        <span class="nav-link-inner--text">회원가입</span>
+                    </a>
+                </li>
+<!--
                 <li class="nav-item">
                     <a class="nav-link nav-link-icon" href="#">
                         <i class="ni ni-notification-70"></i>
@@ -66,13 +76,14 @@
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </li>
+                -->
             </ul>
 
         </div>
     </div>
 </nav>
 
-<div class="container">
+<div class="container" style="padding-top:20px;">
     {% block content %}
     {% endblock %}
 </div>

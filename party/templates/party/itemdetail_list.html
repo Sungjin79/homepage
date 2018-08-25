@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<h4>품목 디테일</h4>
+
+    <table width="100%" cellpadding="5" style="margin-top:30px;margin-bottom:10px">
+    <tr style="border-bottom:1px solid black; border-top:1px solid black;">
+        <th>포장단위</th>
+        <th>수량</th>
+        <th>Shipdoc 포장단위</th>
+        <th>부피</th>
+        <th>단위</th>
+        <th>총무게</th>
+        <th>단위</th>
+        <th>무게</th>
+        <th>단위</th>
+        <th width="30">수정</th>
+    </tr>
+{% for object in object_list %}
+    <tr style="border-bottom:1px solid black;">
+        <td>{{ object.item_pkg }}</td>
+        <td>{{ object.qty }}</td>
+        <td>{{ object.doc_pkg }}</td>
+        <td>{{ object.vol }}</td>
+        <td>{{ object.vol_uom }}</td>
+        <td>{{ object.grosswgt }}</td>
+        <td>{{ object.grosswgt_uom }}</td>
+        <td>{{ object.netwgt }}</td>
+        <td>{{ object.netwgt_uom }}</td>
+        <td><a href="{% url 'item-detail-update' item_id=item_id pk=object.id %}" class="btn btn-secondary">수정</a></td>
+    </tr>
+{% endfor %}
+    </table>
+
+<div align="right"><a href="{% url 'item-detail-create' item_id=item_id %}" class="btn btn-primary">신규</a></div>
+
+{% endblock %}
