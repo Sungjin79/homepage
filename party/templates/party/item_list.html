@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<h4>거래처</h4>
+<h4>품목</h4>
 <div class="row">
     <div class="col">거래처 : <select><option>미구현</option></select></div>
     <div class="col">거래처 구분1 : <select><option>미구현</option></select></div>
@@ -15,31 +15,43 @@
 
     <table width="100%" cellpadding="5" style="margin-top:30px;margin-bottom:10px">
     <tr style="border-bottom:1px solid black; border-top:1px solid black;">
-        <th>거래처명</th>
-        <th>거래처 유형</th>
-        <th>위치</th>
-        <th>상세주소</th>
+        <th>품목</th>
+        <th>품목군</th>
+        <th>HS코드</th>
+        <th>부피</th>
+        <th>단위</th>
+        <th>총무게</th>
+        <th>단위</th>
+        <th>무게</th>
+        <th>단위</th>
         <th>구분1</th>
         <th>구분2</th>
         <th>구분3</th>
         <th>구분4</th>
+        <th width="30">디테일</th>
         <th width="30">수정</th>
     </tr>
 {% for object in object_list %}
     <tr style="border-bottom:1px solid black;">
-        <td>{{ object.party }}</td>
-        <td>{{ object.party_type }}</td>
-        <td>{{ object.party_location }}</td>
-        <td>{{ object.party_address }}</td>
+        <td>?</td>
+        <td>{{ object.commodity }}</td>
+        <td>{{ object.hscode }}</td>
+        <td>{{ object.vol }}</td>
+        <td>{{ object.vol_uom }}</td>
+        <td>{{ object.grosswgt }}</td>
+        <td>{{ object.grosswgt_uom }}</td>
+        <td>{{ object.netwgt }}</td>
+        <td>{{ object.netwgt_uom }}</td>
         <td>{{ object.level1 }}</td>
         <td>{{ object.level2 }}</td>
         <td>{{ object.level3 }}</td>
         <td>{{ object.level4 }}</td>
-        <td><a href="{% url 'party-update' object.id %}" class="btn btn-secondary">수정</a></td>
+        <td><a href="{% url 'item-detail-list' object.id %}" class="btn btn-secondary">이동</a></td>
+        <td><a href="{% url 'item-update' object.id %}" class="btn btn-secondary">수정</a></td>
     </tr>
 {% endfor %}
     </table>
 
-<div align="right"><a href="{% url 'party-create' %}" class="btn btn-primary">신규</a></div>
+<div align="right"><a href="{% url 'item-create' %}" class="btn btn-primary">신규</a></div>
 
 {% endblock %}

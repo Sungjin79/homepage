@@ -1,26 +1,47 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Title</title>
+{% extends 'base.html' %}
+{% block content %}
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <form action="." method="post">{% csrf_token %}
 
-<!-- Icons -->
-<link href="{% static '/assets/vendor/nucleo/css/nucleo.css' %}" rel="stylesheet">
-<link href="{% static '/assets/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+        {% if form.errors %}
+        <p class="errornote">Wrong! Please correct the error(s) below.</p>
+        {% for error in form.username.errors %}
+          <p style="color: red">username {{ error }}</p>
+        {% endfor %}
+        {% for error in form.password1.errors %}
+          <p style="color: red">p1 {{ error }}</p>
+        {% endfor %}
+        {% for error in form.password2.errors %}
+          <p style="color: red">p2 {{ error }}</p>
+        {% endfor %}
 
-<!-- Theme CSS -->
-<link type="text/css" href="{% static '/assets/css/argon.min.css' %}" rel="stylesheet">
+        {% endif %}
 
-</head>
-<body>
+        <fieldset class="aligned">
 
-                    <form class="form" method="post">
-                        {% csrf_token %}
+            <div class="form-row">
+                {{ form.username.label_tag }} {{ form.username }}
+            </div>
+
+            <div class="form-row">
+                {{ form.password1.label_tag }} {{ form.password1 }}
+            </div>
+
+            <div class="form-row">
+                {{ form.password2.label_tag }} {{ form.password2 }}
+            </div>
+        </fieldset>
+
+        <div class="submit-row">
+            <input type="submit" value="Register">
+        </div>
+
+        <script type="text/javascript">document.getElementById('id_username').focus();
+        </script>
+    </form>
+</div>
+
+<!--
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">
@@ -33,16 +54,8 @@
       </div>
     </div>
   </div>
+  -->
                     </form>
 
 
-
-<!-- Core -->
-<script src="{% static '/assets/vendor/jquery/jquery.min.js' %}"></script>
-<script src="{% static '/assets/vendor/popper/popper.min.js' %}"></script>
-<script src="{% static '/assets/vendor/bootstrap/bootstrap.min.js' %}"></script>
-
-<!-- Theme JS -->
-<script src="{% static '/assets/js/argon.min.js' %}"></script>
-</body>
-</html>
+{% endblock %}

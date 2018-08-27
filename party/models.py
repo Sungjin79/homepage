@@ -16,11 +16,11 @@ class Company(models.Model):
 
 class Item(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
-    vol = models.IntegerField
+    vol = models.IntegerField()
     vol_uom = models.CharField(max_length=3)
-    grosswgt = models.IntegerField
+    grosswgt = models.IntegerField()
     grosswgt_uom = models.CharField(max_length=3)
-    netwgt = models.IntegerField
+    netwgt = models.IntegerField()
     netwgt_uom = models.CharField(max_length=3)
     commodity = models.CharField(max_length=15)
     hscode = models.CharField(max_length=15)
@@ -34,13 +34,13 @@ class ItemDetail(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     item_pkg = models.CharField(max_length=10)
-    qty = models.IntegerField
+    qty = models.IntegerField()
     doc_pkg = models.CharField(max_length=10)
-    vol = models.IntegerField
+    vol = models.IntegerField()
     vol_uom = models.CharField(max_length=3)
-    grosswgt = models.IntegerField
+    grosswgt = models.IntegerField()
     grosswgt_uom = models.CharField(max_length=3)
-    netwgt = models.IntegerField
+    netwgt = models.IntegerField()
     netwgt_uom = models.CharField(max_length=3)
 
 
