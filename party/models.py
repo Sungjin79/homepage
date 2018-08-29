@@ -81,7 +81,7 @@ class LocationKeyword(models.Model):
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     keyword = models.CharField(max_length=10)
 
-
+'''
 class Order(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
 
@@ -90,7 +90,7 @@ class Order(models.Model):
 class OrderDetail(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
-
+'''
 # 팝업 디자인 대신 페이지 전환으로
 # 복합키 안쓰는 방식으로...
 # ERD 필요.

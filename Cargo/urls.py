@@ -18,6 +18,7 @@ from django.urls import path, include
 from party.views import PartyCreateView, PartyListView, CompanyListView, CompanyCreateView, FindLocationKeyword, \
     PartyUpdateView, ItemListView, ItemCreateView, ItemUpdateView, ItemDetailListView, ItemDetailCreateView, \
     ItemDetailUpdateView
+from business.views import OrderListView, OrderCreateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -38,4 +39,7 @@ urlpatterns = [
     path('company/', CompanyListView.as_view(), name='company-list'),
     path('company/create/', CompanyCreateView.as_view(), name='company-create'),
     path('location/keyword/<slug:keyword>', FindLocationKeyword),
+
+    path('business/order/', OrderListView.as_view(), name='order-list'),
+    path('business/order/create', OrderCreateView.as_view(), name='order-create'),
 ]
