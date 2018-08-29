@@ -14,7 +14,35 @@ class OrderListView(ListView):
 
 class OrderCreateView(CreateView):
     model = Order
-    fields = ('biztype', 'rdd',  'status')
+    fields = ('biztype', 'rdd',  'status',
+    'payterm',
+    'svcterm',
+    'incoterms',
+    'bltype',
+    'shipper',
+    'shipperlocation',
+    'shipperaddress',
+    'cnee',
+    'cneelocation',
+    'cneeaddress',
+    'noty',
+    'notylocation',
+    'notyaddress',
+    'noty2',
+    'noty2location',
+    'noty2address',
+    'pickup',
+    'pickuplocation',
+    'pickupaddress',
+    'pickuptype',
+    'delivery',
+    'deliverylocation',
+    'deliveryaddress',
+    'deliverytype',
+    'initby',
+    'initdttm',
+    'upby',
+    'updttm')
 
     def get_success_url(self):
         return reverse('order-list')
