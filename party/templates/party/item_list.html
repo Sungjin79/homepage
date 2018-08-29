@@ -1,20 +1,46 @@
 {% extends 'base.html' %}
 {% block content %}
-<h4>품목</h4>
 <div class="row">
-    <div class="col">거래처 : <select><option>미구현</option></select></div>
-    <div class="col">거래처 구분1 : <select><option>미구현</option></select></div>
-    <div class="col">거래처 구분3 : <select><option>미구현</option></select></div>
-</div>
-<div class="row">
-    <div class="col">거래처 유형 : <select><option>미구현</option></select></div>
-    <div class="col">거래처 구분2 : <select><option>미구현</option></select></div>
-    <div class="col">거래처 구분4 : <select><option>미구현</option></select></div>
-</div>
-<div align="right"><a href="#" class="btn btn-secondary">조회</a></div>
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title ">품목</h4>
+        <!--<p class="card-category"> Here is a subtitle for this table</p>-->
+      </div>
+      <div class="card-body">
 
-    <table width="100%" cellpadding="5" style="margin-top:30px;margin-bottom:10px">
-    <tr style="border-bottom:1px solid black; border-top:1px solid black;">
+        <div class="row">
+            <div class="col">거래처 : <select><option>미구현</option></select></div>
+            <div class="col">거래처 구분1 : <select><option>미구현</option></select></div>
+            <div class="col">거래처 구분3 : <select><option>미구현</option></select></div>
+        </div>
+        <div class="row">
+            <div class="col">거래처 유형 : <select><option>미구현</option></select></div>
+            <div class="col">거래처 구분2 : <select><option>미구현</option></select></div>
+            <div class="col">거래처 구분4 : <select><option>미구현</option></select></div>
+        </div>
+        <div align="right"><a href="#" class="btn btn-primary">조회</a></div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+<!--
+      <div class="card-header card-header-primary">
+        <h4 class="card-title ">Simple Table</h4>
+        <p class="card-category"> Here is a subtitle for this table</p>
+      </div>
+    -->
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class=" text-primary">
         <th>품목</th>
         <th>품목군</th>
         <th>HS코드</th>
@@ -28,11 +54,14 @@
         <th>구분2</th>
         <th>구분3</th>
         <th>구분4</th>
-        <th width="30">디테일</th>
-        <th width="30">수정</th>
-    </tr>
-{% for object in object_list %}
-    <tr style="border-bottom:1px solid black;">
+        <th>디테일</th>
+        <th>수정</th>
+  </thead>
+            <tbody>
+
+              {% for object in object_list %}
+                  <tr>
+    <tr>
         <td>?</td>
         <td>{{ object.commodity }}</td>
         <td>{{ object.hscode }}</td>
@@ -50,6 +79,7 @@
         <td><a href="{% url 'item-update' object.id %}" class="btn btn-secondary">수정</a></td>
     </tr>
 {% endfor %}
+            </tbody>
     </table>
 
 <div align="right"><a href="{% url 'item-create' %}" class="btn btn-primary">신규</a></div>
