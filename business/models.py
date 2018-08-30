@@ -1,4 +1,6 @@
 from django.db import models
+from party.models import Company
+
 
 # Create your models here.
 class Order(models.Model):
@@ -54,3 +56,23 @@ class Order(models.Model):
     upby = models.CharField(max_length=100)
     updttm = models.CharField(max_length=14)
 
+
+class OrderDetail(models.Model):
+    company = models.ForeignKey(Company, on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    item = models.CharField(max_length=100)
+    itemqty = models.IntegerField()
+    invoicevalue = models.IntegerField()
+    invoicevaluecurr = models.CharField(max_length=3)
+    itempkg = models.CharField(max_length=100) # max_length 안나와있음
+    itempkgqty = models.IntegerField()
+    vol = models.IntegerField()
+    voluom = models.CharField(max_length=3)
+    grosswgt = models.IntegerField()
+    grosswgtuom = models.CharField(max_length=3)
+    netwgt = models.IntegerField()
+    netwgtuom = models.CharField(max_length=3)
+    initby = models.CharField(max_length=100)
+    initdttm = models.CharField(max_length=14)
+    upby = models.CharField(max_length=100)
+    updttm = models.CharField(max_length=14)

@@ -18,28 +18,32 @@ from django.urls import path, include
 from party.views import PartyCreateView, PartyListView, CompanyListView, CompanyCreateView, FindLocationKeyword, \
     PartyUpdateView, ItemListView, ItemCreateView, ItemUpdateView, ItemDetailListView, ItemDetailCreateView, \
     ItemDetailUpdateView
-from business.views import OrderListView, OrderCreateView
+from business.views import OrderListView, OrderCreateView, OrderDetailListView, OrderDetailCreateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('', PartyListView.as_view(), name='party-list'),
-    path('party/create', PartyCreateView.as_view(), name='party-create'),
-    path('party/update/<int:pk>', PartyUpdateView.as_view(), name='party-update'),
+    path('party/create/', PartyCreateView.as_view(), name='party-create'),
+    path('party/update/<int:pk>/', PartyUpdateView.as_view(), name='party-update'),
 
     path('item/', ItemListView.as_view(), name='item-list'),
     path('item/create/', ItemCreateView.as_view(), name='item-create'),
-    path('item/update/<int:pk>', ItemUpdateView.as_view(), name='item-update'),
+    path('item/update/<int:pk>/', ItemUpdateView.as_view(), name='item-update'),
 
     path('item/<int:item_id>/', ItemDetailListView.as_view(), name='item-detail-list'),
     path('item/<int:item_id>/create/', ItemDetailCreateView.as_view(), name='item-detail-create'),
-    path('item/<int:item_id>/update/<int:pk>', ItemDetailUpdateView.as_view(), name='item-detail-update'),
+    path('item/<int:item_id>/update/<int:pk>/', ItemDetailUpdateView.as_view(), name='item-detail-update'),
 
     path('company/', CompanyListView.as_view(), name='company-list'),
     path('company/create/', CompanyCreateView.as_view(), name='company-create'),
-    path('location/keyword/<slug:keyword>', FindLocationKeyword),
+    path('location/keyword/<slug:keyword>/', FindLocationKeyword),
 
     path('business/order/', OrderListView.as_view(), name='order-list'),
-    path('business/order/create', OrderCreateView.as_view(), name='order-create'),
+    path('business/order/create/', OrderCreateView.as_view(), name='order-create'),
+
+    path('business/order/<int:order_id>/', OrderDetailListView.as_view(), name='order-detail-list'),
+    path('business/order/<int:order_id>/create/', OrderDetailCreateView.as_view(), name='order-detail-create'),
+#    path('business/order/<int:order_id>/update/<int:pk>/', OrderDetailUpdateView.as_view(), name='order-detail-update'),
 ]
