@@ -10,7 +10,14 @@
       <div class="card-body">
 
         <div class="row">
-            <div class="col">거래처 : <select><option>미구현</option></select></div>
+            <div class="col">거래처 :
+              <select id="party-select">
+              	<option>Alfa Romeo</option>
+              	<option>Audi</option>
+              	<option>BMW</option>
+              	<option>Citroen</option>
+              </select>
+            </div>
             <div class="col">거래처 구분1 : <select><option>미구현</option></select></div>
             <div class="col">거래처 구분3 : <select><option>미구현</option></select></div>
         </div>
@@ -92,4 +99,10 @@
 
 <div align="right"><a href="{% url 'party-create' %}" class="btn btn-primary">신규</a></div>
 
+{% endblock %}
+
+{% block javascript %}
+<script>
+  $('#party-select').editableSelect();
+</script>
 {% endblock %}
