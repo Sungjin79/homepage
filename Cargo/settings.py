@@ -79,18 +79,18 @@ WSGI_APPLICATION = 'Cargo.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#    }
-    'default': {
-        'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'orcl',
-        'USER': 'container',
-        'PASSWORD': 'zjsxpdlsj123',
-        'HOST': 'oracle-db-instance.ckmt72c0vfw3.ap-northeast-2.rds.amazonaws.com',
-        'PORT': '1521',
-    }
+   'default': {
+       'ENGINE': 'django.db.backends.sqlite3',
+       'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+   }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.oracle',
+    #     'NAME': 'orcl',
+    #     'USER': 'container',
+    #     'PASSWORD': 'zjsxpdlsj123',
+    #     'HOST': 'oracle-db-instance.ckmt72c0vfw3.ap-northeast-2.rds.amazonaws.com',
+    #     'PORT': '1521',
+    # }
 }
 
 
