@@ -1,12 +1,16 @@
 from django.shortcuts import render
 
 # Create your views here.
-from django.views.generic import CreateView, ListView, UpdateView
+from django.views.generic import CreateView, ListView, UpdateView, TemplateView
 
 from party.models import Party, Company, LocationKeyword, Item, ItemDetail
 from django.http import JsonResponse, HttpResponse
 from django.urls import reverse
 
+
+
+class HomePageView(TemplateView):
+    template_name = "index.html"
 
 class ItemListView(ListView):
     model = Item

@@ -17,14 +17,16 @@ from django.contrib import admin
 from django.urls import path, include
 from party.views import PartyCreateView, PartyListView, CompanyListView, CompanyCreateView, FindLocationKeyword, \
     PartyUpdateView, ItemListView, ItemCreateView, ItemUpdateView, ItemDetailListView, ItemDetailCreateView, \
-    ItemDetailUpdateView
+    ItemDetailUpdateView, HomePageView
 from business.views import OrderListView, OrderCreateView, OrderDetailListView, OrderDetailCreateView
 
 urlpatterns = [
+
+    path('', HomePageView.as_view(), name='index'),
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('', PartyListView.as_view(), name='party-list'),
+    path('party', PartyListView.as_view(), name='party-list'),
     path('party/create/', PartyCreateView.as_view(), name='party-create'),
     path('party/update/<int:pk>/', PartyUpdateView.as_view(), name='party-update'),
 
